@@ -1,5 +1,5 @@
 //dependencies and modules
-const { promptManager, promptEmployee, promptEngineer, promptIntern } = require('./team');
+const { promptManager, promptEmployee, promptEngineer, promptIntern, teamMembersArray } = require('./team');
 
 async function createTeam() {
   await promptManager();
@@ -7,7 +7,7 @@ async function createTeam() {
   await promptEngineer();
   await promptIntern();
   
-  console.log("teamMembers", teamMembers);
+  console.log("teamMembers", teamMembersArray);
 }
 
 createTeam();
