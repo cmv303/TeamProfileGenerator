@@ -34,7 +34,7 @@ async function promptEngineer() {
         type: 'input',
         name: 'engineerName',
         message: "What's the name of your Engineer?",
-        default: "Temy"
+        default: "Camila"
       },
       {
         type: 'input',
@@ -46,7 +46,7 @@ async function promptEngineer() {
         type: 'input',
         name: 'engineerGitHub',
         message: "What's the GitHub Username of your Engineer?",
-        default: "temy3732"
+        default: "cmv303"
       },
     ];
     const engineerAnswers = await inquirer.prompt(enginnerQuestions)

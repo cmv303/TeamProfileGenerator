@@ -31,19 +31,20 @@ function generateHTML(teamMembersArray) {
       html += `
         <div class="card employee-card">
           <div class="card-header">
-            <h2 class="card-title">${member.getName()}</h2>
+            <h2 class="card-title">${member.getemployeeName()}</h2>
             <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${member.getRole()}</h3>
           </div>
           <div class="card-body">
             <ul class="list-group">
-              <li class="list-group-item">ID: ${member.getId()}</li>
-              <li class="list-group-item">Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></li>
+              <li class="list-group-item">ID: ${member.getemployeeId()}</li>
+              
       `;
   
       // If the member is a Manager, add their office number to the HTML
       if (member.getRole() === "Manager") {
         html += `
-          <li class="list-group-item">Office number: ${member.getOfficeNumber()}</li>
+          <li class="list-group-item">Role: ${member.getRole()}</li>
+          <li class="list-group-item">Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></li>
         `;
       }
   
@@ -58,6 +59,7 @@ function generateHTML(teamMembersArray) {
       if (member.getRole() === "Intern") {
         html += `
           <li class="list-group-item">School: ${member.getSchool()}</li>
+          <li class="list-group-item">Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></li>
         `;
       }
   
