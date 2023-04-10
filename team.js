@@ -65,11 +65,13 @@ async function addOptions() {
       switch (choiceData.options) {
         case "Add Engineer":
           promptEngineer();
+          console.log("promptEngineer", promptEngineer())
           break;
         case "Add Intern":
           promptIntern();
+          console.log("promptEngineer", promptIntern())
           break;
-        default:
+       case "Finish building team":
           //finish building team
           const finishBuilding = await inquirer.prompt (choiceData.options);
           console.log("team roster is ready!");
