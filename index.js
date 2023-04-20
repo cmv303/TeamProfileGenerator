@@ -6,6 +6,8 @@ const {
   promptEngineer,
   promptIntern,
   teamMembersArray,
+  
+  
 } = require("./team");
 const fs = require("fs");
 const path = require("path");
@@ -13,13 +15,15 @@ const generateHTML = require("./src/generateHTML");
 
 
 async function createTeam() {
-  await addOptions();
+  
   await promptManager();
   await promptEmployee();
+  await addOptions();
   await promptEngineer();
   await promptIntern();
+  
 
-  console.log("teamMembersArray", teamMembersArray);
+  
 
   const html = generateHTML(teamMembersArray);
   writeToFile("./dis/index.html", html);
@@ -30,7 +34,5 @@ async function createTeam() {
 function writeToFile(fileName, data) {
   return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
-
-
 
 createTeam();

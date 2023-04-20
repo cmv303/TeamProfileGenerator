@@ -11,6 +11,34 @@ const Manager = require("./lib/Manager");
 //Array of team members
 const teamMembersArray = [];
 
+//Inquirer prompts for How to Proceed
+async function addOptions() {
+  const choiceData = await inquirer.prompt([
+    {
+      type: "list",
+      message: "What role are you looking to add to your team?",
+      name: "options",
+      choices: ["Add Engineer", "Add Intern", "Finish building my team"],
+    },
+  ]);
+
+  if (choiceData.options === "Add Engineer") {
+    await promptEngineer();
+    await addOptions();
+    // console.log("promptEngineer", promptEngineer())
+  } else if (choiceData.options === "Add Intern") {
+    await promptIntern();
+    await addOptions();
+    // console.log("promptIntern", promptIntern())
+  } else if (choiceData.options === "Finish building my team") {
+    //finish building team
+    // const finishBuilding = await inquirer.prompt (choiceData.options);
+    console.log("team roster is ready!");
+    // teamMembersArray.push(finishBuilding);
+    process.exit(0); // This will terminate the program.
+    }
+};
+
 //Inquirer prompts for Manager
 async function promptManager() {
   const managerQuestions = [
@@ -24,7 +52,7 @@ async function promptManager() {
       type: "input",
       name: "managerId",
       message: "What is your manager's employee ID?",
-      default: "5",
+      default: "05",
     },
     {
       type: "input",
@@ -40,7 +68,7 @@ async function promptManager() {
     },
   ];
   const managerAnswers = await inquirer.prompt(managerQuestions);
-  console.log(`Hi manager ${managerAnswers["managerName"]}!`);
+  // console.log(`Hi manager ${managerAnswers["managerName"]}!`);
   const manager = new Manager(
     managerAnswers["managerName"],
     managerAnswers["managerId"],
@@ -48,43 +76,24 @@ async function promptManager() {
     managerAnswers["managerOfficeNumber"]
   );
   teamMembersArray.push(manager);
+  // await addOptions();
 }
-
-//Inquirer prompts for How to Proceed
-
-async function addOptions() {
-    const choiceData = await inquirer
-    .prompt([
-      {
-        type: "list",
-        message: "What role are you looking to add to your team?",
-        name: "options",
-        choices: ["Add Engineer", "Add Intern", "I'm done building my team"],
-      },
-    ]);
-      switch (choiceData.options) {
-        case "Add Engineer":
-          promptEngineer();
-          console.log("promptEngineer", promptEngineer())
-          break;
-        case "Add Intern":
-          promptIntern();
-          console.log("promptEngineer", promptIntern())
-          break;
-       case "Finish building team":
-          //finish building team
-          const finishBuilding = await inquirer.prompt (choiceData.options);
-          console.log("team roster is ready!");
-          teamMembersArray.push(finishBuilding);
-          
-          break;
-      }
-    };
-
 
 //Inquirer prompt for Employee
 async function promptEmployee() {
   const employeeQuestions = [
+    {
+      type: "input",
+      name: "employeeName",
+      message: "What's the name of your Employee?",
+      default: "John",
+    },
+    {
+      type: "input",
+      name: "employeeRole",
+      message: "What's the role of your Employee?",
+      default: "Manager",
+    },
     {
       type: "input",
       name: "employeeId",
@@ -93,9 +102,10 @@ async function promptEmployee() {
     },
   ];
   const employeeAnswers = await inquirer.prompt(employeeQuestions);
-  console.log(`Hi employee with ID ${employeeAnswers["employeeId"]}!`);
-  const employee = new Employee(employeeAnswers["employeeId"]);
+  // console.log(`Hi employee with ID ${employeeAnswers["employeeId"]}!`);
+  const employee = new Employee(employeeAnswers["employeeName"], employeeAnswers["employeeId"]);
   teamMembersArray.push(employee);
+  // await addOptions();
 }
 
 //Inquirer prompt for Engineer
@@ -121,14 +131,14 @@ async function promptEngineer() {
     },
   ];
   const engineerAnswers = await inquirer.prompt(engineerQuestions);
-  console.log(`Hi engineer ${engineerAnswers["engineerName"]}!`);
+  // console.log(`Hi engineer ${engineerAnswers["engineerName"]}!`);
   const engineer = new Engineer(
     engineerAnswers["engineerName"],
     engineerAnswers["engineerId"],
     engineerAnswers["engineerGitHub"]
   );
   teamMembersArray.push(engineer);
-  addOptions();
+  // await addOptions();
 }
 
 //Inquirer prompts for Intern
@@ -160,7 +170,7 @@ async function promptIntern() {
     },
   ];
   const internAnswers = await inquirer.prompt(internQuestions);
-  console.log(`Hi intern ${internAnswers["internName"]}!`);
+  // console.log(`Hi intern ${internAnswers["internName"]}!`);
   const intern = new Intern(
     internAnswers["internName"],
     internAnswers["internId"],
@@ -168,14 +178,17 @@ async function promptIntern() {
     internAnswers["internSchool"]
   );
   teamMembersArray.push(intern);
-  addOptions();
-}
+  // await addOptions();
+};
+
+
 
 module.exports = {
-  addOptions,
+  
   promptEmployee,
   promptEngineer,
   promptIntern,
+  addOptions,
   promptManager,
   teamMembersArray,
 };
