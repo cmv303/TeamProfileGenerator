@@ -1,11 +1,3 @@
-const {
-  promptManager,
-  promptEmployee,
-  promptEngineer,
-  promptIntern,
-  teamMembersArray,
-} = require("../team");
-
 function generateHTML(teamMembersArray) {
   // Create a string variable to hold the HTML code
   let html = "";

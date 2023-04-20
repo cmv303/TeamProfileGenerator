@@ -24,18 +24,18 @@ async function addOptions() {
 
   if (choiceData.options === "Add Engineer") {
     await promptEngineer();
-    await addOptions();
+    // await addOptions();
     // console.log("promptEngineer", promptEngineer())
   } else if (choiceData.options === "Add Intern") {
     await promptIntern();
-    await addOptions();
+    // await addOptions();
     // console.log("promptIntern", promptIntern())
   } else if (choiceData.options === "Finish building my team") {
     //finish building team
     // const finishBuilding = await inquirer.prompt (choiceData.options);
     console.log("team roster is ready!");
     // teamMembersArray.push(finishBuilding);
-    process.exit(0); // This will terminate the program.
+    return
   }
 }
 
@@ -68,7 +68,7 @@ async function promptManager() {
     },
   ];
   const managerAnswers = await inquirer.prompt(managerQuestions);
-  // console.log(`Hi manager ${managerAnswers["managerName"]}!`);
+  console.log(`Hi manager ${managerAnswers["managerName"]}!`);
   const manager = new Manager(
     managerAnswers["managerName"],
     managerAnswers["managerId"],
@@ -76,7 +76,7 @@ async function promptManager() {
     managerAnswers["managerOfficeNumber"]
   );
   teamMembersArray.push(manager);
-  // await addOptions();
+  await addOptions();
 }
 
 //Inquirer prompt for Employee
@@ -141,7 +141,7 @@ async function promptEngineer() {
     engineerAnswers["engineerGitHub"]
   );
   teamMembersArray.push(engineer);
-  // await addOptions();
+  await addOptions();
 }
 
 //Inquirer prompts for Intern
@@ -181,7 +181,7 @@ async function promptIntern() {
     internAnswers["internSchool"]
   );
   teamMembersArray.push(intern);
-  // await addOptions();
+  await addOptions();
 }
 
 module.exports = {

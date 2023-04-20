@@ -6,11 +6,11 @@ describe("Manager", () => {
       const name = "Sara";
       const newManagerName = new Manager(
         name,
+        "05",
         "sarahasbeenhere@aol.com",
         "555-555-5555",
-        "Manager"
       );
-      expect(newManagerName.getmanagerName()).toEqual(name);
+      expect(newManagerName.getemployeeName()).toEqual(name);
     });
   });
   describe("managerEmail", () => {
@@ -22,6 +22,7 @@ describe("Manager", () => {
         email,
         "Manager"
       );
+      
       expect(newManagerEmail.getEmail()).toEqual(email);
     });
   });
