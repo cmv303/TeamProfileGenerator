@@ -5,8 +5,8 @@ describe("Manager", () => {
     it("returns the Manager's name", () => {
       const name = "Sara";
       const newManagerName = new Manager(
-        "sarahasbeenhere@aol.com",
         name,
+        "sarahasbeenhere@aol.com",
         "555-555-5555",
         "Manager"
       );
