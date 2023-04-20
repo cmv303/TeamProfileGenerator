@@ -33,15 +33,15 @@ To run Locally in command-line, run the following command
   node index.js
 ```
 
-## Demo
-<img width="825" alt="Screenshot 2023-04-20 at 4 26 06 PM" src="https://user-images.githubusercontent.com/115678318/233481011-58b9dd7e-e68e-4be8-9fc0-a1d7d086a9d1.png">
-
-<img width="1377" alt="Screenshot 2023-04-20 at 4 26 29 PM" src="https://user-images.githubusercontent.com/115678318/233481028-6890ca80-da98-4c11-aa7f-5c0a7a1fd73a.png">
-
-
 ## Deployment
 
 To see a walk-through tutorial, click here:
+
+## Demo
+
+<img width="825" alt="Screenshot 2023-04-20 at 4 26 06 PM" src="https://user-images.githubusercontent.com/115678318/233481011-58b9dd7e-e68e-4be8-9fc0-a1d7d086a9d1.png">
+
+<img width="1377" alt="Screenshot 2023-04-20 at 4 26 29 PM" src="https://user-images.githubusercontent.com/115678318/233481028-6890ca80-da98-4c11-aa7f-5c0a7a1fd73a.png">
 
 ## License
 
