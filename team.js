@@ -36,8 +36,8 @@ async function addOptions() {
     console.log("team roster is ready!");
     // teamMembersArray.push(finishBuilding);
     process.exit(0); // This will terminate the program.
-    }
-};
+  }
+}
 
 //Inquirer prompts for Manager
 async function promptManager() {
@@ -103,7 +103,10 @@ async function promptEmployee() {
   ];
   const employeeAnswers = await inquirer.prompt(employeeQuestions);
   // console.log(`Hi employee with ID ${employeeAnswers["employeeId"]}!`);
-  const employee = new Employee(employeeAnswers["employeeName"], employeeAnswers["employeeId"]);
+  const employee = new Employee(
+    employeeAnswers["employeeName"],
+    employeeAnswers["employeeId"]
+  );
   teamMembersArray.push(employee);
   // await addOptions();
 }
@@ -179,12 +182,9 @@ async function promptIntern() {
   );
   teamMembersArray.push(intern);
   // await addOptions();
-};
-
-
+}
 
 module.exports = {
-  
   promptEmployee,
   promptEngineer,
   promptIntern,

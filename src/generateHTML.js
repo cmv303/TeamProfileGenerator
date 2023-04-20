@@ -1,11 +1,17 @@
-const { promptManager, promptEmployee, promptEngineer, promptIntern, teamMembersArray } = require('../team');
+const {
+  promptManager,
+  promptEmployee,
+  promptEngineer,
+  promptIntern,
+  teamMembersArray,
+} = require("../team");
 
 function generateHTML(teamMembersArray) {
-    // Create a string variable to hold the HTML code
-    let html = "";
-  
-    // Add the opening HTML tags and section
-    html += `
+  // Create a string variable to hold the HTML code
+  let html = "";
+
+  // Add the opening HTML tags and section
+  html += `
       <!DOCTYPE html>
       <html lang="en">
         <head>
@@ -24,11 +30,11 @@ function generateHTML(teamMembersArray) {
             </div>
             <div class="row justify-content-center">
     `;
-  
-    // Loop through the teamMembersArray array and generate HTML code for each member
-    for (let i = 0; i < teamMembersArray.length; i++) {
-      let member = teamMembersArray[i];
-      html += `
+
+  // Loop through the teamMembersArray array and generate HTML code for each member
+  for (let i = 0; i < teamMembersArray.length; i++) {
+    let member = teamMembersArray[i];
+    html += `
         <div class="card employee-card">
           <div class="card-header">
             <h2 class="card-title">${member.getemployeeName()}</h2>
@@ -39,49 +45,48 @@ function generateHTML(teamMembersArray) {
               <li class="list-group-item">ID: ${member.getemployeeId()}</li>
               
       `;
-  
-      // If the member is a Manager, add their office number to the HTML
-      if (member.getRole() === "Manager") {
-        html += `
+
+    // If the member is a Manager, add their office number to the HTML
+    if (member.getRole() === "Manager") {
+      html += `
           <li class="list-group-item">Role: ${member.getRole()}</li>
           <li class="list-group-item">Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></li>
         `;
-      }
-  
-      // If the member is an Engineer, add their GitHub username to the HTML
-      if (member.getRole() === "Engineer") {
-        html += `
+    }
+
+    // If the member is an Engineer, add their GitHub username to the HTML
+    if (member.getRole() === "Engineer") {
+      html += `
           <li class="list-group-item">GitHub: <a href="https://github.com/${member.getGithub()}" target="_blank" rel="noopener noreferrer">${member.getGithub()}</a></li>
         `;
-      }
-  
-      // If the member is an Intern, add their school to the HTML
-      if (member.getRole() === "Intern") {
-        html += `
+    }
+
+    // If the member is an Intern, add their school to the HTML
+    if (member.getRole() === "Intern") {
+      html += `
           <li class="list-group-item">School: ${member.getSchool()}</li>
           <li class="list-group-item">Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></li>
         `;
-      }
-  
-      // Add the closing tags for the member's card
-      html += `
+    }
+
+    // Add the closing tags for the member's card
+    html += `
             </ul>
           </div>
         </div>
       `;
-    }
-  
-    // Add the closing HTML tags
-    html += `
+  }
+
+  // Add the closing HTML tags
+  html += `
             </div>
           </div>
         </body>
       </html>
     `;
-  
-    // Return the HTML code
-    return html;
-  }
-  
-  module.exports = generateHTML;
-  
+
+  // Return the HTML code
+  return html;
+}
+
+module.exports = generateHTML;
