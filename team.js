@@ -24,18 +24,11 @@ async function addOptions() {
 
   if (choiceData.options === "Add Engineer") {
     await promptEngineer();
-    // await addOptions();
-    // console.log("promptEngineer", promptEngineer())
   } else if (choiceData.options === "Add Intern") {
     await promptIntern();
-    // await addOptions();
-    // console.log("promptIntern", promptIntern())
   } else if (choiceData.options === "Finish building my team") {
-    //finish building team
-    // const finishBuilding = await inquirer.prompt (choiceData.options);
     console.log("team roster is ready!");
-    // teamMembersArray.push(finishBuilding);
-    return
+    return;
   }
 }
 
@@ -134,7 +127,6 @@ async function promptEngineer() {
     },
   ];
   const engineerAnswers = await inquirer.prompt(engineerQuestions);
-  // console.log(`Hi engineer ${engineerAnswers["engineerName"]}!`);
   const engineer = new Engineer(
     engineerAnswers["engineerName"],
     engineerAnswers["engineerId"],
@@ -173,7 +165,6 @@ async function promptIntern() {
     },
   ];
   const internAnswers = await inquirer.prompt(internQuestions);
-  // console.log(`Hi intern ${internAnswers["internName"]}!`);
   const intern = new Intern(
     internAnswers["internName"],
     internAnswers["internId"],
